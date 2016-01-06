@@ -1,0 +1,38 @@
+{
+  "name": "fileconfig",
+  "version": "3.0.0",
+  "description": "json and yml file configurations",
+  "main": "lib/fileconfig.js",
+  "preferGlobal": true,
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha --harmony_proxies",
+    "dev": "./node_modules/.bin/nodemon -e js,json,yml ./node_modules/mocha/bin/mocha --harmony_proxies"
+  },
+  "bin": {
+    "harmonious": "bin/harmonious"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viqueen/fileconfig.git"
+  },
+  "keywords": [
+    "json",
+    "yml",
+    "config"
+  ],
+  "author": "Hasnae Rehioui <hrehioui@atlassian.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/viqueen/fileconfig/issues"
+  },
+  "homepage": "https://github.com/viqueen/fileconfig#readme",
+  "devDependencies": {
+    "mocha": "^2.3.4",
+    "nodemon": "^1.8.1"
+  },
+  "dependencies": {
+    "harmony-reflect": "^1.4.2",
+    "jsonfile": "^2.2.3",
+    "yamljs": "^0.2.4"
+  }
+}
