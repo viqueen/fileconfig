@@ -6,6 +6,7 @@
   "preferGlobal": true,
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha --harmony_proxies",
+    "test:watch": "./node_modules/mocha/bin/mocha --harmony_proxies --watch",
     "dev": "./node_modules/.bin/nodemon -e js,json,yml ./node_modules/mocha/bin/mocha --harmony_proxies"
   },
   "bin": {
@@ -33,6 +34,7 @@
   "dependencies": {
     "harmony-reflect": "^1.4.2",
     "jsonfile": "^2.2.3",
+    "underscore": "^1.8.3",
     "yamljs": "^0.2.4"
   }
 }
