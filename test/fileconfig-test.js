@@ -8,14 +8,6 @@ process.env.SERVER_NAME = 'DEFAULT SERVER';
 let FileConfig = require('../lib/fileconfig');
 let TestConfig = new FileConfig(path.resolve(__dirname, 'config'));
 
-describe('fileconfig-dir', () => {
-    it('should return component @path property', () => {
-        let servers = TestConfig.servers;
-        let cpath   = path.resolve(__dirname, 'config/servers');
-        assert.equal(cpath, servers['@path']);
-    });
-});
-
 describe('fileconfig-json', () => {
     it('should return data in jsonTest.json', () => {
         assert.equal(8080, TestConfig.servers.jsonTest.port);
@@ -71,5 +63,18 @@ describe('fileconfig-yml', () => {
         let server = TestConfig.servers.ymlTest;
         let cpath  = path.resolve(__dirname, 'config/servers/ymlTest.yml');
         assert.equal(cpath, server['@path']);
+    });
+});
+
+describe('fileconfig-dir', () => {
+    it('should return component @path property', () => {
+        let servers = TestConfig.servers;
+        let cpath   = path.resolve(__dirname, 'config/servers');
+        assert.equal(cpath, servers['@path']);
+    });
+    it('should not return an immutable copy of component["@value"] if component is directory', () => {
+        let servers = TestConfig.servers['@value'];
+        let lazyServer = servers.lazyServer;
+        assert.equal(7070, lazyServer.port);
     });
 });
