@@ -4,9 +4,10 @@ let assert  = require('assert');
 let path    = require('path');
 
 process.env.SERVER_NAME = 'DEFAULT SERVER';
+process.env.NODE_FILECONFIG_DIR = path.resolve(__dirname, 'config');
 
 let FileConfig = require('../lib/fileconfig');
-let TestConfig = new FileConfig(path.resolve(__dirname, 'config'));
+let TestConfig = FileConfig.global();
 
 describe('fileconfig-json', () => {
     it('should return data in jsonTest.json', () => {
