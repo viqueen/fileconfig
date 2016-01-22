@@ -6,6 +6,7 @@ let path    = require('path');
 process.env.SERVER_NAME = 'DEFAULT SERVER';
 process.env.NODE_FILECONFIG_DIR = path.resolve(__dirname, 'config');
 
+let ComponentNotFound = require('../lib/errors').ComponentNotFound;
 let FileConfig = require('../lib/fileconfig');
 let TestConfig = FileConfig.global();
 
@@ -77,5 +78,13 @@ describe('fileconfig-dir', () => {
         let servers = TestConfig.servers['@value'];
         let lazyServer = servers.lazyServer;
         assert.equal(7070, lazyServer.port);
+    });
+});
+
+describe('fileconfig-errors', () => {
+    it('should handle component not found', () => {
+        assert.throws(() => {
+            let invalid = TestConfig.servers.invalid;
+        }, ComponentNotFound);
     });
 });
