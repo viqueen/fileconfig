@@ -2,6 +2,10 @@
 
 Library for configuration file loading
 
+[![Stories in Ready](https://badge.waffle.io/viqueen/fileconfig.svg?label=ready&title=Ready)](http://waffle.io/viqueen/fileconfig)
+[![Build Status](https://travis-ci.org/viqueen/fileconfig.svg?branch=master)](https://travis-ci.org/viqueen/fileconfig)
+
+
 ## install it
 
 ```bash
