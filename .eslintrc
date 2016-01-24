@@ -1,0 +1,17 @@
+{
+  "env" : {
+    "node" : true
+    , "mocha" : true
+    , "es6" : true
+  }
+
+  , "ecmaFeatures" : {
+    "arrowFunctions" : true
+    , "classes" : true
+  }
+
+  , "rules" : {
+    "quotes" : [2, "single"]
+    , "strict" : 0
+  }
+}

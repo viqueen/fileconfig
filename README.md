@@ -42,6 +42,14 @@ console.log(defaultServer.name);    // out : alpha dev share
 console.log(defaultServer.port);    // out : 9090
 ```
 
+## dev
+
+```
+npm run test:watch          # run tests and watch for changes
+npm run coverage            # generate coverage reports
+npm run lint                # generate lint report
+```
+
 ## licence
 
 Apache-2.0
