@@ -6,7 +6,9 @@ let path    = require('path');
 process.env.SERVER_NAME = 'DEFAULT SERVER';
 process.env.NODE_FILECONFIG_DIR = path.resolve(__dirname, 'config');
 
-let ComponentNotFound = require('../lib/errors').ComponentNotFound;
+let ComponentNotFound           = require('../lib/errors').ComponentNotFound;
+let InvalidComponentDefinition  = require('../lib/errors').InvalidComponentDefinition;
+
 let FileConfig = require('../lib/fileconfig');
 let TestConfig = FileConfig.global();
 
@@ -84,7 +86,12 @@ describe('fileconfig-dir', () => {
 describe('fileconfig-errors', () => {
     it('should handle component not found', () => {
         assert.throws(() => {
-            let invalid = TestConfig.servers.invalid;
+            let notfound = TestConfig.servers.notfound;
         }, ComponentNotFound);
+    });
+    it('should handle invalid json component definition', () => {
+        assert.throws(() => {
+            let invalid = TestConfig.servers.jsonInvalid;
+        }, InvalidComponentDefinition);
     });
 });
