@@ -1,4 +1,4 @@
-# fileconfig (v-3.1.0)
+# fileconfig (v-3.2.0)
 
 Library for configuration file loading
 
