@@ -1,6 +1,6 @@
 {
   "name": "fileconfig",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "json and yml file configurations",
   "main": "lib/fileconfig.js",
   "preferGlobal": true,
@@ -8,7 +8,7 @@
     "test": "./node_modules/mocha/bin/mocha --harmony_proxies",
     "test:watch": "./node_modules/mocha/bin/mocha --harmony_proxies --watch",
     "dev": "./node_modules/.bin/nodemon -e js,json,yml ./node_modules/mocha/bin/mocha --harmony_proxies",
-    "coverage": "./node_modules/.bin/istanbul cover _mocha -- --recursive && ./node_modules/.bin/istanbul check-coverage",
+    "coverage": "./node_modules/.bin/istanbul --harmony_proxies cover _mocha -- --recursive && ./node_modules/.bin/istanbul --harmony_proxies check-coverage",
     "lint" : "./node_modules/.bin/eslint . --ext .js --debug"
   },
   "bin": {
