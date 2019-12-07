@@ -2,7 +2,7 @@
   "name": "fileconfig",
   "version": "4.0.0",
   "description": "json and yml file configurations",
-  "main": "lib/fileconfig.js",
+  "main": "dist/fileconfig.js",
   "preferGlobal": true,
   "scripts": {
     "build": "babel src -d dist",
@@ -42,6 +42,9 @@
     "harmony-reflect": "^1.4.2",
     "jsonfile": "^5.0.0",
     "yamljs": "^0.3.0"
+  },
+  "directories": {
+    "test": "test"
   },
   "husky": {
     "hooks": {
