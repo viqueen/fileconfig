@@ -5,14 +5,10 @@
   "main": "lib/fileconfig.js",
   "preferGlobal": true,
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --harmony_proxies",
-    "test:watch": "./node_modules/mocha/bin/mocha --harmony_proxies --watch",
-    "dev": "./node_modules/.bin/nodemon -e js,json,yml ./node_modules/mocha/bin/mocha --harmony_proxies",
-    "coverage" : "node --harmony_proxies node_modules/istanbul/lib/cli.js cover _mocha -- --recursive && ./node_modules/.bin/istanbul check-coverage",
-    "lint" : "./node_modules/.bin/eslint . --ext .js --debug"
-  },
-  "bin": {
-    "harmonious": "bin/harmonious"
+    "test": "./node_modules/mocha/bin/mocha",
+    "test:watch": "./node_modules/mocha/bin/mocha --watch",
+    "dev": "./node_modules/.bin/nodemon -e js,json,yml ./node_modules/mocha/bin/mocha",
+    "lint": "./node_modules/.bin/eslint . --ext .js --debug"
   },
   "repository": {
     "type": "git",
@@ -23,21 +19,20 @@
     "yml",
     "config"
   ],
-  "author": "Hasnae Rehioui <hrehioui@atlassian.com>",
+  "author": "Hasnae R. <viqueen>",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/viqueen/fileconfig/issues"
   },
   "homepage": "https://github.com/viqueen/fileconfig#readme",
   "devDependencies": {
-    "eslint": "^1.10.3",
-    "istanbul": "^0.4.2",
-    "mocha": "^2.3.4",
-    "nodemon": "^1.8.1"
+    "eslint": "^6.7.2",
+    "mocha": "^6.2.2",
+    "nodemon": "^2.0.1"
   },
   "dependencies": {
     "harmony-reflect": "^1.4.2",
-    "jsonfile": "^2.2.3",
-    "yamljs": "^0.2.4"
+    "jsonfile": "^5.0.0",
+    "yamljs": "^0.3.0"
   }
 }
