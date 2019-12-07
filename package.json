@@ -7,8 +7,7 @@
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha",
     "test:watch": "./node_modules/mocha/bin/mocha --watch",
-    "dev": "./node_modules/.bin/nodemon -e js,json,yml ./node_modules/mocha/bin/mocha",
-    "lint": "./node_modules/.bin/eslint . --ext .js --debug"
+    "dev": "./node_modules/.bin/nodemon -e js,json,yml ./node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -27,12 +26,20 @@
   "homepage": "https://github.com/viqueen/fileconfig#readme",
   "devDependencies": {
     "eslint": "^6.7.2",
+    "husky": "^3.1.0",
     "mocha": "^6.2.2",
-    "nodemon": "^2.0.1"
+    "nodemon": "^2.0.1",
+    "prettier": "1.19.1",
+    "pretty-quick": "^2.0.1"
   },
   "dependencies": {
     "harmony-reflect": "^1.4.2",
     "jsonfile": "^5.0.0",
     "yamljs": "^0.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
