@@ -1,10 +1,6 @@
-# fileconfig (v-3.2.0)
+# fileconfig (v-4.0.0)
 
 Library for configuration file loading
-
-[![Stories in Ready](https://badge.waffle.io/viqueen/fileconfig.svg?label=ready&title=Ready)](http://waffle.io/viqueen/fileconfig)
-[![Build Status](https://travis-ci.org/viqueen/fileconfig.svg?branch=master)](https://travis-ci.org/viqueen/fileconfig)
-
 
 ## install it
 
@@ -38,12 +34,12 @@ dir: ${env.ALPHA_SHARE}
 then you can fetch data as follow:
 
 ```javascript
-var FileConfig  = require('fileconfig');
-var config      = new FileConfig('/path/to/config/folder');
+var FileConfig = require("fileconfig");
+var config = new FileConfig("/path/to/config/folder");
 
 var defaultServer = config.share.default;
-console.log(defaultServer.name);    // out : alpha dev share
-console.log(defaultServer.port);    // out : 9090
+console.log(defaultServer.name); // out : alpha dev share
+console.log(defaultServer.port); // out : 9090
 ```
 
 ## dev
