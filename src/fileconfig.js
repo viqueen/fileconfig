@@ -2,8 +2,8 @@ import path from "path";
 import resolver from "./resolver";
 
 class Component {
-  constructor(path) {
-    this.definition = resolver.resolve(path);
+  constructor(filepath) {
+    this.definition = resolver.resolve(filepath);
   }
 
   lookup(queue) {
@@ -46,8 +46,8 @@ class Component {
 }
 
 export default class FileConfig {
-  constructor(path) {
-    return new Proxy(new Component(path), FileConfig.handler());
+  constructor(filepath) {
+    return new Proxy(new Component(filepath), FileConfig.handler());
   }
 
   static fromComponent(component) {

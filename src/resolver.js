@@ -38,15 +38,15 @@ class FileResolver {
         : filename + this.extension;
     return fs.existsSync(filepath) ? filepath : undefined;
   }
-  resolve(path) {
+  resolve(filepath) {
     let data;
     try {
-      data = this.reader(path);
+      data = this.reader(filepath);
     } catch (error) {
-      throw new InvalidComponentDefinition(path);
+      throw new InvalidComponentDefinition(filepath);
     }
     return {
-      path: path,
+      path: filepath,
       value: Vars.resolve(data),
       leaf: true
     };
@@ -55,26 +55,26 @@ class FileResolver {
 
 class JsonResolver extends FileResolver {
   constructor() {
-    super(".json", path => jsonFile.readFileSync(path));
+    super(".json", filepath => jsonFile.readFileSync(filepath));
   }
 }
 
 class YamlResolver extends FileResolver {
   constructor() {
-    super(".yml", path => yamlJs.load(path));
+    super(".yml", filepath => yamlJs.load(filepath));
   }
 }
 
 class DirectoryResolver {
-  supports(path) {
-    return fs.existsSync(path) && fs.lstatSync(path).isDirectory()
-      ? path
+  supports(filepath) {
+    return fs.existsSync(filepath) && fs.lstatSync(filepath).isDirectory()
+      ? filepath
       : undefined;
   }
 
-  resolve(path) {
+  resolve(filepath) {
     return {
-      path: path,
+      path: filepath,
       value: {},
       leaf: false
     };
@@ -90,18 +90,18 @@ class Resolver {
     ];
   }
 
-  resolve(path) {
+  resolve(filepath) {
     let supported = this.delegates
       .map(resolver => {
         return {
           instance: resolver,
-          target: resolver.supports(path)
+          target: resolver.supports(filepath)
         };
       })
       .find(supported => supported.target !== undefined);
 
     if (!supported) {
-      throw new ComponentNotFound(path);
+      throw new ComponentNotFound(filepath);
     }
     return supported.instance.resolve(supported.target);
   }

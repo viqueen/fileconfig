@@ -83,12 +83,12 @@ describe("fileconfig-dir", () => {
 describe("fileconfig-errors", () => {
   it("should handle component not found", () => {
     assert.throws(() => {
-      let notfound = testConfig.servers.notfound;
+      testConfig.servers.notfound;
     }, ComponentNotFound);
   });
   it("should handle invalid json component definition", () => {
     assert.throws(() => {
-      let invalid = testConfig.servers.jsonInvalid;
+      testConfig.servers.jsonInvalid;
     }, InvalidComponentDefinition);
   });
 });
