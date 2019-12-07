@@ -98,7 +98,7 @@ class Resolver {
           target: resolver.supports(filepath)
         };
       })
-      .find(supported => supported.target !== undefined);
+      .find(s => s.target !== undefined);
 
     if (!supported) {
       throw new ComponentNotFound(filepath);
