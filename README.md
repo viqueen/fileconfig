@@ -1,3 +1,5 @@
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fileconfig&metric=alert_status)](https://sonarcloud.io/dashboard?id=fileconfig)
+
 # fileconfig (v-4.0.0)
 
 Library for configuration file loading
