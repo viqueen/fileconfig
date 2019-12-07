@@ -46,7 +46,6 @@ console.log(defaultServer.port); // out : 9090
 
 ```
 npm run test:watch          # run tests and watch for changes
-npm run coverage            # generate coverage reports
 npm run lint                # generate lint report
 ```
 

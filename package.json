@@ -6,7 +6,7 @@
   "preferGlobal": true,
   "scripts": {
     "build": "babel src -d dist",
-    "test": "./node_modules/mocha/bin/mocha --require @babel/register",
+    "test": "nyc --reporter=lcov --reporter=text mocha --require @babel/register",
     "test:watch": "./node_modules/mocha/bin/mocha --watch --require @babel/register",
     "dev": "./node_modules/.bin/nodemon -e js,json,yml ./node_modules/mocha/bin/mocha --require @babel/register"
   },
@@ -34,6 +34,7 @@
     "husky": "^3.1.0",
     "mocha": "^6.2.2",
     "nodemon": "^2.0.1",
+    "nyc": "^14.1.1",
     "prettier": "1.19.1",
     "pretty-quick": "^2.0.1"
   },
