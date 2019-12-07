@@ -1,12 +1,8 @@
-"use strict";
-
-let FS = require("fs");
-let Path = require("path");
-let JsonFile = require("jsonfile");
-let YamlJS = require("yamljs");
-
-let ComponentNotFound = require("./errors").ComponentNotFound;
-let InvalidComponentDefinition = require("./errors").InvalidComponentDefinition;
+import path from "path";
+import fs from "fs";
+import jsonFile from "jsonfile";
+import yamlJs from "yamljs";
+import { ComponentNotFound, InvalidComponentDefinition } from "./errors";
 
 class Vars {
   static resolveString(str) {
@@ -23,7 +19,7 @@ class Vars {
     if (typeof object === "string") {
       return Vars.resolveString(object);
     }
-    for (var prop in object) {
+    for (const prop in object) {
       object[prop] = Vars.resolve(object[prop]);
     }
     return object;
@@ -35,10 +31,12 @@ class FileResolver {
     this.extension = extension;
     this.reader = reader;
   }
-  supports(path) {
+  supports(filename) {
     let filepath =
-      Path.extname(path) === this.extension ? path : path + this.extension;
-    return FS.existsSync(filepath) ? filepath : undefined;
+      path.extname(filename) === this.extension
+        ? filename
+        : filename + this.extension;
+    return fs.existsSync(filepath) ? filepath : undefined;
   }
   resolve(path) {
     let data;
@@ -57,19 +55,19 @@ class FileResolver {
 
 class JsonResolver extends FileResolver {
   constructor() {
-    super(".json", path => JsonFile.readFileSync(path));
+    super(".json", path => jsonFile.readFileSync(path));
   }
 }
 
 class YamlResolver extends FileResolver {
   constructor() {
-    super(".yml", path => YamlJS.load(path));
+    super(".yml", path => yamlJs.load(path));
   }
 }
 
 class DirectoryResolver {
   supports(path) {
-    return FS.existsSync(path) && FS.lstatSync(path).isDirectory()
+    return fs.existsSync(path) && fs.lstatSync(path).isDirectory()
       ? path
       : undefined;
   }
@@ -109,4 +107,4 @@ class Resolver {
   }
 }
 
-module.exports = new Resolver();
+export default new Resolver();

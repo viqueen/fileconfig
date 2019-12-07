@@ -1,16 +1,13 @@
-"use strict";
-
-class ComponentNotFound extends Error {
+export class ComponentNotFound extends Error {
   constructor(path) {
+    // noinspection JSCheckFunctionSignatures
     super("component not found : " + path);
   }
 }
 
-class InvalidComponentDefinition extends Error {
+export class InvalidComponentDefinition extends Error {
   constructor(path) {
+    // noinspection JSCheckFunctionSignatures
     super("invalid component definition : " + path);
   }
 }
-
-exports.ComponentNotFound = ComponentNotFound;
-exports.InvalidComponentDefinition = InvalidComponentDefinition;

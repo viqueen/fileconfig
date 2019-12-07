@@ -5,9 +5,10 @@
   "main": "lib/fileconfig.js",
   "preferGlobal": true,
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha",
-    "test:watch": "./node_modules/mocha/bin/mocha --watch",
-    "dev": "./node_modules/.bin/nodemon -e js,json,yml ./node_modules/mocha/bin/mocha"
+    "build": "babel src -d dist",
+    "test": "./node_modules/mocha/bin/mocha --require @babel/register",
+    "test:watch": "./node_modules/mocha/bin/mocha --watch --require @babel/register",
+    "dev": "./node_modules/.bin/nodemon -e js,json,yml ./node_modules/mocha/bin/mocha --require @babel/register"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,10 @@
   },
   "homepage": "https://github.com/viqueen/fileconfig#readme",
   "devDependencies": {
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.5",
+    "@babel/register": "^7.7.4",
     "eslint": "^6.7.2",
     "husky": "^3.1.0",
     "mocha": "^6.2.2",

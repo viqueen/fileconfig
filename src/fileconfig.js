@@ -1,13 +1,9 @@
-"use strict";
-
-let Reflect = require("harmony-reflect");
-let Path = require("path");
-
-let Resolver = require("./resolver");
+import path from "path";
+import resolver from "./resolver";
 
 class Component {
   constructor(path) {
-    this.definition = Resolver.resolve(path);
+    this.definition = resolver.resolve(path);
   }
 
   lookup(queue) {
@@ -28,8 +24,8 @@ class Component {
         : FileConfig.fromComponent(this);
     }
     if (!(property in this.definition.value)) {
-      let path = Path.resolve(this.definition.path, property);
-      this.definition.value[property] = new FileConfig(path);
+      let filepath = path.resolve(this.definition.path, property);
+      this.definition.value[property] = new FileConfig(filepath);
     }
     return Component.lookupData(this.definition.value[property], queue);
   }
@@ -49,7 +45,7 @@ class Component {
   }
 }
 
-class FileConfig {
+export default class FileConfig {
   constructor(path) {
     return new Proxy(new Component(path), FileConfig.handler());
   }
@@ -70,5 +66,3 @@ class FileConfig {
     return new FileConfig(process.env.NODE_FILECONFIG_DIR);
   }
 }
-
-module.exports = FileConfig;
